@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
   <title>Chat app</title>
+=======
+  <title>Chat</title>
+>>>>>>> 161f994d2cda39520c5f44efed35f46e51e4e5b2
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<<<<<<< HEAD
   <%= render 'layouts/header' %>
   
   <% if notice %>
@@ -17,6 +22,26 @@
   
 <%= yield %>
   <%= render 'layouts/footer' %>
+=======
+	<header class="clearfix" id="main_navigation">
+		<a href="#" class="name">Demo Chat app</a>
+		<nav>
+			<a href="#">Home</a>
+			<a href="#">Chat rooms</a>
+			<a href="#">Login</a>
+		</nav>
+	</header>
+<%= yield %>
+
+	<footer id="main_footer">
+		<p class="copyright">&copy;2016 Oleg Bloshenkin Chat App</p>
+		<nav>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-vk"></i></i></a>
+			<a href="#"><i class="fa fa-github"></i></a>
+		</nav>
+	</footer>
+>>>>>>> 161f994d2cda39520c5f44efed35f46e51e4e5b2
 
 </body>
 </html>
