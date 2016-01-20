@@ -1,0 +1,12 @@
+<header class="clearfix" id="main_navigation">
+  <%= link_to 'Demo Chat APP', root_path, class: "name" %>
+	<nav>
+		<%= link_to 'Home', root_path %>
+		<%= link_to 'Chat rooms', chats_path %>
+		<%  if user_signed_in? %>
+		  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+		<% else %>
+		  <%= link_to 'Login', new_user_session_path %>
+		<% end %>
+	</nav>
+</header>

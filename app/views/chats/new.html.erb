@@ -1,0 +1,27 @@
+<h1 id="page_title">Create new Chat</h1>
+
+<div class="skinny_wrapper wrapper_padding">
+ <%= form_for @chat do |f| %>
+  	<% if @chat.errors.any? %>
+  		<h2><%= pluralize(@chat.errors.count, "error") %> prevented this post from saving:</h2>
+  		<ul>
+  			<% @chat.errors.full_messages.each do |msg| %>
+  				<li><%= msg %></li>
+  			<% end %>
+  		</ul>
+  	<% end %>
+  
+  	<%= f.label :title %><br>
+  	<%= f.text_field :title %>
+  
+    <%= hidden_field_tag :private, '' %>
+    <%= check_box_tag :private, checked = true %> Private Chat</br></br>
+  
+  
+  	<br>
+  	<br>
+  
+  	<%= f.submit %>
+  
+  <% end %>
+</div>
