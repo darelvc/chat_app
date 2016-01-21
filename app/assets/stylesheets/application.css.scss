@@ -4,10 +4,7 @@ $border: #E9E9E9;
 $highlight: #8bc6db;
 $dark: #424652;
 $light: #9a9da4;
-<<<<<<< HEAD
 $white: #FFFFFF;
-=======
->>>>>>> 161f994d2cda39520c5f44efed35f46e51e4e5b2
 
 * {
 	box-sizing: border-box;
@@ -87,7 +84,6 @@ p, ul, ol {
 	}
 }
 
-<<<<<<< HEAD
 #page_title {
 	text-align: center;
 	border-bottom: 1px solid $border;
@@ -96,8 +92,6 @@ p, ul, ol {
 	text-transform: uppercase;
 }
 
-=======
->>>>>>> 161f994d2cda39520c5f44efed35f46e51e4e5b2
 #main_footer {
 	padding: 2.5em 5%;
 	border-top: 1px solid $border;
@@ -118,7 +112,6 @@ p, ul, ol {
 		}
 	}
 }
-<<<<<<< HEAD
 
 .wrapper {
 	width: 90%;
@@ -184,8 +177,6 @@ input[type="submit"], .button {
 	margin: 4em 0 0 0;
 	text-align: center;
 }
-=======
->>>>>>> 161f994d2cda39520c5f44efed35f46e51e4e5b2
  
 @import 'normalize';
 @import 'welcome';
