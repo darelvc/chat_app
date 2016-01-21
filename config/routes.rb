@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   
-  resources 'chats'
+  resources 'chats' do
+    resources :messages
+  end
   
   get '*path' => redirect('/')
 end

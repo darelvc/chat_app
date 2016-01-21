@@ -5,14 +5,15 @@ class ChatsController < ApplicationController
   end
 
   def show
+    @messages = Message.where(chat_id: @chat)
   end
   
   def new
-  	@chat = Chat.new
+  	@chat = current_user.chats.build
   end
   
   def create
-  	@chat = Chat.new chat_params
+  	@chat = current_user.chats.build chat_params
   
   	if @chat.save
   		redirect_to @chat, notice: "Hellz yeah, Mackenzie! Your article was successfully saved!"

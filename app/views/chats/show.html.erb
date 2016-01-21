@@ -1,10 +1,18 @@
 <div class="wrapper clearfix">
 	<div class="col-1 homepage_content">
 		
-    	<h1>Chats#show</h1>
-      <p>Find me in app/views/chats/show.html.erb</p>
+    <h1 id="page_title"><%= @chat.title %></h1>
       
-      <h2><%= @chat.title %></h2>
+      <div id="comments">
+        <% @messages.each do |message| %>
+          <div class="comment">
+            <%= link_to gravatar_for(message.user, size: 70) %>
+            <p class=content><%= message.content %></p>
+          </div>
+        <% end %>
+      </div>
+    
+    <%= render "messages/form" %>
       
 	</div>
 	<div class="col-2 homepage_content">
