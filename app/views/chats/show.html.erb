@@ -3,7 +3,7 @@
 		
     <h1 id="page_title"><%= @chat.title %></h1>
       
-      <div id="comments">
+      <div id="comments" data-chat-id="<%= @chat.id %>" >
         <% @messages.each do |message| %>
           <div class="comment">
             <div id="avatar">

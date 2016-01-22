@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  chatId = $('#comments').data('chatId');
+  chanel = '/chats/' + chatId + '/messages'
+  PrivatePub.subscribe chanel, (data, chanel) ->
+    console.log(data)
+    message = $.parseJSON(data['message'])
+    $('#comments').append(message.content)
+    $('.new_message #message_content').val('');
