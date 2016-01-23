@@ -22,7 +22,13 @@
     <%= render "messages/form" %>
     
     <%= subscribe_to "/chats/#{@chat.id}/messages" %>
-      
+    
+    <% if user_signed_in? %>
+      <div id="admin_links">
+        <%= link_to "Edit chat", edit_chat_path(@chat) %>
+        <%= link_to "Close chat", chat_path(@chat), method: :delete, data: { confirm: "Are you sure?"} %>
+      </div>
+    <% end %>  
 	</div>
 	<div class="col-2 homepage_content">
 	  <div class="chat_rooms">

@@ -1,8 +1,15 @@
 <div class="wrapper clearfix">
 	<div class="col-1 homepage_content">
 		
-		<h1>Chats#index</h1>
-        <p>Find me in app/views/chats/index.html.erb</p>
+		<h1 id="page_title">All Chats</h1>
+		<div class="chats_rooms">
+      <% @chats.each do |chat| %>
+        <ul>
+          <br>
+          <li><%= link_to chat.title, chat_path(chat), class: "button" %></li>
+        </ul>
+      <% end %>
+    </div>
 
 	</div>
 	<div class="col-2 homepage_content">

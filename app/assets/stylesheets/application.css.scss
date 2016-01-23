@@ -148,7 +148,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 }
 
 textarea {
-	min-height: 20em;
+	min-height: 10em;
 }
 
 input[type="submit"], .button {
@@ -177,8 +177,25 @@ input[type="submit"], .button {
 	margin: 4em 0 0 0;
 	text-align: center;
 }
+
+#admin_links {
+  border-top: 1px solid $border;
+  border-bottom: 1px solid $border;
+  text-align: center;
+  padding: 1em 0;
+  margin: 3em 0;
+  a {
+    color: $light;
+    margin: 0 1em;
+    font-weight: 700;
+    font-size: .8em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
  
 @import 'normalize';
 @import 'welcome';
+@import 'messages';
 @import "font-awesome-sprockets";
 @import "font-awesome";

@@ -1,6 +1,6 @@
 #comments {
 	padding-bottom: 4rem;
-	width: 50%;
+	width: 100%;
 	.comment_count {
 		border-bottom: 1px solid #E9E9E9;
 		padding-bottom: .5rem;
@@ -11,7 +11,7 @@
 		border-bottom: 1px solid #E9E9E9;
 		padding-left: 5%;
 		.username {
-			font-size: 1.3rem;
+			font-size: 0.9rem;
 			color: #333233;
 			margin: 0 0 .5rem 0;
 		}
@@ -23,7 +23,11 @@
       float: left;
       width: 70px;
       height: 70px;
-      border: 2px solid #e5e7e8;
+      margin-right: 20px;
+      img {
+        border-radius: 50%;
+        border: 2px solid #e5e7e8;
+      }
     }
 	}
 	.comment_content {

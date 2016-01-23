@@ -22,7 +22,30 @@
 		display: block;
 		height: 2px;
 		border: 0;
-		border-top: 2px solid $highlight;
+		border-top: 2px solid #E9E9E9;
 		margin: 2rem 0;
 	}
+	.chats_rooms {
+	  li {
+	    list-style:none;
+	    text-align: center;
+	  }
+	  hr {
+	    width: 100% !important;
+	    //border-top: 1px solid #ccc !important;
+	    border-top: 1px solid #E9E9E9;
+	  }
+	  a {
+	    text-decoration: none;
+	    &:hover {
+	      color: $dark;
+	    }
+	  }
+	}
+	
+	.welcome_content {
+	  padding: 3em 0;
+    text-align: center;
+	}
+
 }
