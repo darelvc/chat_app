@@ -8,10 +8,8 @@ class ChatsController < ApplicationController
 
   def show
     if @chat.private?
-      if @chat.private_users.find_by_email(current_user.email) != nil
+      if @chat.private_users.find_by_email(current_user.email) != nil || current_user.admin?
       #if @chat.private_users.all? {|email| @chat.private_users.include?(current_user.email)} == true
-        @messages = Message.where(chat_id: @chat)
-      elsif @chat.admin?
         @messages = Message.where(chat_id: @chat)
       else
        redirect_to chats_path, notice: "You must be invited to join this chat room"
