@@ -2,26 +2,12 @@
 	<div class="col-1 homepage_content">
 		
     <h1 id="page_title"><%= @chat.title %></h1>
-      
-      <div id="comments" data-chat-id="<%= @chat.id %>" >
-        <% @messages.each do |message| %>
-          <div class="comment">
-            <div id="avatar">
-              <%= link_to gravatar_for(message.user, size: 70) %>
-            </div>
-            <div class="message">
-              <h5 class="username">User Name: <%= message.user.name %></h5>
-              <p class=content><%= message.content %></p>
-              <span class="quiet"><small>created: <%= time_ago_in_words(message.created_at) %> ago</small></span>
-            </div>
-          </div>
-          
-        <% end %>
-      </div>
     
-    <%= render "messages/form" %>
-    
-    <%= subscribe_to "/chats/#{@chat.id}/messages" %>
+      <%= render "chats/chats" %>
+  
+      <%= render "messages/form" %>
+       
+      <%= subscribe_to "/chats/#{@chat.id}/messages" %>
     
     <% if user_signed_in? %>
       <div id="admin_links">

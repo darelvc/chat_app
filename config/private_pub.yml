@@ -1,5 +1,5 @@
 development:
-  server: "https://chat-app-darelvc.c9users.io/faye"
+  server: "https://chat-app-darelvc.c9users.io:9292/faye"
   secret_token: "secret"
 test:
   server: "https://chat-app-darelvc.c9users.io/faye"

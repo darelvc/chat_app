@@ -1,0 +1,15 @@
+<div id="comments" data-chat-id="<%= @chat.id %>" >
+  <% @chat.messages.each do |message| %>
+    <div class="comment">
+      <div id="avatar">
+        <%= link_to gravatar_for(message.user, size: 70) %>
+      </div>
+      <div class="message">
+        <h5 class="username">User Name: <%= message.user.name %></h5>
+        <p class=content><%= message.content %></p>
+        <span class="quiet"><small>created: <%= time_ago_in_words(message.created_at) %> ago</small></span>
+      </div>
+    </div>
+      
+  <% end %>
+</div>

@@ -1,12 +1,25 @@
 class ChatsController < ApplicationController
   before_action :find_chat, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
   
   def index
     @chats = Chat.all.order("created_at DESC")
   end
 
   def show
-    @messages = Message.where(chat_id: @chat)
+    if @chat.private?
+      if @chat.private_users.find_by_email(current_user.email) != nil
+      #if @chat.private_users.all? {|email| @chat.private_users.include?(current_user.email)} == true
+        @messages = Message.where(chat_id: @chat)
+      elsif @chat.admin?
+        @messages = Message.where(chat_id: @chat)
+      else
+       redirect_to chats_path, notice: "You must be invited to join this chat room"
+      end
+    end
+    if @chat.public?
+      @messages = Message.where(chat_id: @chat)
+    end
   end
   
   def new
@@ -38,11 +51,11 @@ class ChatsController < ApplicationController
     @chat.destroy
     redirect_to chats_path, notice: "You Destroy Chat"
   end
-
+  
 private
 
   def chat_params
-  	params.require(:chat).permit(:title, :private, :slug)
+  	params.require(:chat).permit(:title, :private, :privatemail, private_users_attributes: [:id, :email, :_destroy])
   end
   
   def find_chat

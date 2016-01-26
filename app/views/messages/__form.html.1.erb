@@ -2,3 +2,17 @@
 	<%= f.input :content, label: "Reply to thread" %>
 	<%= f.button :submit, class: "button" %>
 <% end %>
+
+
+def private_chat
+    if @chat.private? == true
+      @chat = @chat.privatemail.split(", ").uniq
+      if @chat.all? {|email| @chat.include?(current_user.email)} == true
+        @chat = Chat.find(params[:id])
+      else
+        redirect_to chats_path, notice: "You must be invited to this chat room"
+      end
+    else
+      redirect_to chats_path, notice: "You must be invited to this chat room"
+    end
+  end

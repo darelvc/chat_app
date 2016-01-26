@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121100357) do
+ActiveRecord::Schema.define(version: 20160126093306) do
 
   create_table "chats", force: :cascade do |t|
-    t.boolean  "private",    default: false
+    t.boolean  "private",     default: false
     t.string   "title"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
+    t.string   "privatemail"
+    t.boolean  "public",      default: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -28,6 +30,15 @@ ActiveRecord::Schema.define(version: 20160121100357) do
     t.integer  "user_id"
     t.integer  "chat_id"
   end
+
+  create_table "private_users", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "chat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "private_users", ["chat_id"], name: "index_private_users_on_chat_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

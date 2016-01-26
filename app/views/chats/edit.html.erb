@@ -16,6 +16,13 @@
   
     <%= hidden_field_tag :private, '' %>
     <%= check_box_tag :private, checked = true %> Private Chat</br></br>
+    
+    <%= f.fields_for :private_users do |chat| %>
+    	<%= render 'private_user_fields', f: chat %>
+    <% end %>
+    <div class="f-row full">
+        <%= link_to_add_association 'Add private user', f, :private_users, class: "button" %>
+    </div>
   
   
   	<br>
