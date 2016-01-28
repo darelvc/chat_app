@@ -166,6 +166,11 @@ input[type="submit"], .button {
 	}
 }
 
+.button_private {
+  background: rgba(125, 104, 104, 0.06);
+  border: 2px solid #B38888;
+}
+
 .project_button {
 	background: $highlight;
 	color: $white;
@@ -193,9 +198,35 @@ input[type="submit"], .button {
     text-transform: uppercase;
   }
 }
+
+.center {
+	text-align: center;
+}
+
+.show_avatar {
+  img {
+    border-radius: 50%;
+    border: 2px solid #e5e7e8;
+  }
+  hr {
+    border-top: 0.95px solid #E9E9E9;
+  }
+}
+
+.chats_rooms {
+  li {
+    list-style: none;
+    text-align: center;
+  }
+  hr {
+    width: 100% !important;
+    border-top: 1px solid #E9E9E9;
+  }
+}
  
 @import 'normalize';
 @import 'welcome';
 @import 'messages';
+@import 'chats';
 @import "font-awesome-sprockets";
 @import "font-awesome";

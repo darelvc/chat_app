@@ -14,25 +14,28 @@
   	<%= f.label :title %><br>
   	<%= f.text_field :title %>
   	
-  	<%= f.check_box :private, {}, true, false %>
-    <%= f.label :private, "Private Chat" %>
-
-    <br>
+  	<div class="private_public">
+      	<%= f.check_box :private, {}, true, false %>
+        <%= f.label :private, "Private Chat" %>
     
-    <%= f.check_box :public, {}, true, false %>
-    <%= f.label :public, "Public Chat" %>
-    
-    <br>
-    <br>
+        <br>
+        
+        <%= f.check_box :public, {}, true, false %>
+        <%= f.label :public, "Public Chat" %>
+        
+        <br>
+        <br>
+  	</div>
   	
   	<%= f.fields_for :private_users do |chat| %>
-			<%= render 'private_user_fields', f: chat %>
-		<% end %>
-		<div class="f-row full">
-			<%= link_to_add_association 'Add private user', f, :private_users, class: "button" %>
-		</div>
-  
-  	<br>
+		<%= render 'private_user_fields', f: chat %>
+	<% end %>
+	
+	<div class="f-row full">
+		<%= link_to_add_association 'Add private user', f, :private_users, class: "button" %>
+	</div>
+		
+    <br>
   	<br>
   
   	<%= f.submit %>

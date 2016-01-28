@@ -9,7 +9,7 @@
        
       <%= subscribe_to "/chats/#{@chat.id}/messages" %>
     
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @chat.user_id == current_user.id || @chat.admin? %>
       <div id="admin_links">
         <%= link_to "Edit chat", edit_chat_path(@chat) %>
         <%= link_to "Close chat", chat_path(@chat), method: :delete, data: { confirm: "Are you sure?"} %>

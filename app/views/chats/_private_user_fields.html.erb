@@ -1,7 +1,7 @@
 <div class="nested-fields">
-  <div class="form-group f-row ingredient">
-    <div class="large"><%= f.text_field :email, :placeholder => "Email to add private user" %></div>
+  <div class="form-group f-row">
+    <div class="large"><%= f.email_field :email, :placeholder => "Email to add private user" %>
     
-    <%= link_to_remove_association "-", f, class: "remove button" %>
+    <%= link_to_remove_association "-", f, class: "remove button" %></div>
   </div>
 </div>

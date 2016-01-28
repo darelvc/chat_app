@@ -1,6 +1,7 @@
 class ChatsController < ApplicationController
   before_action :find_chat, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
+  #before_filter :assign_user, only: [ :new ]
   
   def index
     @chats = Chat.all.order("created_at DESC")
@@ -8,7 +9,7 @@ class ChatsController < ApplicationController
 
   def show
     if @chat.private?
-      if @chat.private_users.find_by_email(current_user.email) != nil || current_user.admin?
+      if @chat.private_users.find_by_email(current_user.email) != nil || current_user.admin? || @chat.user_id == current_user.id
       #if @chat.private_users.all? {|email| @chat.private_users.include?(current_user.email)} == true
         @messages = Message.where(chat_id: @chat)
       else
@@ -58,6 +59,10 @@ private
   
   def find_chat
   	@chat = Chat.find(params[:id])
+  end
+  
+  def assign_user
+    resource.user = current_user
   end
 
 end

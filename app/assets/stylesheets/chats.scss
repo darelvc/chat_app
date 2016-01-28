@@ -1,3 +1,25 @@
 // Place all the styles related to the chats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//.f-row 		{float:left;display:block;width:100%;padding-bottom:20px !important;position:relative;}
+
+.form-group, .f-row {
+  .large {
+    padding: 10px;
+    //width: 60%;
+    //float: left;
+    input[type="email"] {
+      width: 80%;
+      max-width: 100%;
+      height: 3em;
+      border: 2px solid #E9E9E9;
+      padding: 1em;
+      margin: .5em 0 2em 0;
+    }
+  }
+}
+.private_public {
+  padding: 1em;
+}
+

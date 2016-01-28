@@ -1,0 +1,37 @@
+<h1 id="page_title">User page: <%= @user.name %></h1>
+
+<div class="skinny_wrapper wrapper_padding">
+	<div class="show_avatar center">
+		<%= gravatar_for @user, size: 200 %>
+		<hr>
+	</div>
+	
+	<h3 class="center"><%= @user.email %></h3>
+	
+	<p>Send a message: <%= @user.messages.count %></p>
+	<p>Active Created Chat: <%= @user.chats.count %></p>
+	
+	<hr>
+	
+	<h3 class="center">All Chats by User: <%= @user.name %> </h3>
+	
+	<hr>
+	
+	<div class="chats_rooms">
+  	<% @user.chats.each do |chat| %>
+  	  <% if chat.private? %>
+  	    <ul>
+          <br>
+          <li><%= link_to chat.title, chat_path(chat), class: "button button_private" %></li>
+        </ul>
+      <% else %>
+        <ul>
+          <br>
+          <li><%= link_to chat.title, chat_path(chat), class: "button" %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+  
+  
+</div>
